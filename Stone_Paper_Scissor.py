@@ -1,41 +1,31 @@
-/*************  ✨ Windsurf Command 🌟  *************/
 import random
-import os 
 import re
-def re():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    while (1 < 2):
-        print ("\n")
-        print ("Rock, Paper, Scissors - Shoot")
-        userChoice = input("Choose your weapon [R]ock, [P]aper, or [S]cissors:").upper()
-        if not re.match("[RPS]", userChoice):
-        userChoice = input("Choose your weapon [R]ock, [P]aper, or [S]cissors:")
-        if not re.match("[ssRrPp]", userChoice):
-            print ("Please choose a letter:")
-            print ("[R]ock, [S]cissors or [P]aper.")
-            continue
-        
-        print ("You chose: " + userChoice)
-        choices = ['R', 'P', 'S']
-        opponentChoice = random.choice(choices)
-        print ("I chose: " + opponentChoice)
-        if opponentChoice == userChoice:
-        if opponentChoice == str.upper(userChoice):
-            print ("Tie!")
-        elif (opponentChoice == 'R' and userChoice == 'S') or (opponentChoice == 'S' and userChoice == 'P') or (opponentChoice == 'P' and userChoice == 'R'):
-            print ("I Win ")
-        #if opponentChoice = str("R") and str.upper(userChoice) = "P"
-        elif opponentChoice == 'R' and userChoice.upper() == 'S':
-            print ("scissors beats rock, I Win ")
-            continue
-        elif opponentChoice == 'S' and userChoice.upper() == 'P':
-            print ("Scissors beats paper, I win")
-            continue
-        elif opponentChoice == 'P' and userChoice.upper() == 'R':
-            print ("Paper beat rock, I win ")
-            continue
-        else:
-            print ("You win")
-            print ("you win")
 
-/*******  0ef2413f-5789-40f8-a6ca-e51f73f4514c  *******/
+def play_rps():
+    # Clear screen
+    while True:
+        print("\nRock, Paper, Scissors - Shoot!")
+        user_choice = input("Choose your weapon [R]ock, [P]aper, or [S]cissors: ").upper()
+
+        # Validate user input
+        if not re.match("^[RPS]$", user_choice):
+            print("Invalid input! Please enter R, P, or S.")
+            continue
+
+        print("You chose:", user_choice)
+        choices = ['R', 'P', 'S']
+        opponent_choice = random.choice(choices)
+        print("I chose:", opponent_choice)
+
+        # Game result logic
+        if user_choice == opponent_choice:
+            print("It's a Tie!")
+        elif (user_choice == 'R' and opponent_choice == 'S') or \
+             (user_choice == 'P' and opponent_choice == 'R') or \
+             (user_choice == 'S' and opponent_choice == 'P'):
+            print("You Win!")
+        else:
+            print("I Win!")
+
+# Run the game
+play_rps()
